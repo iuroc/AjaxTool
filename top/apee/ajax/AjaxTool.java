@@ -1,6 +1,5 @@
 package top.apee.ajax;
 
-
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -73,7 +72,9 @@ public class AjaxTool {
         while ((line = reader.readLine()) != null) {
             result.append(line);
         }
-        iCallback.call(result.toString());
+        if (iCallback != null) {
+            iCallback.call(result.toString());
+        }
         return conn.getResponseCode();
     }
 
